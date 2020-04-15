@@ -1,0 +1,67 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+set map [lindex $argv 0];
+spawn ./navy $map
+match_max 100000
+expect -exact "attack: "
+send -- "A1\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "A1\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "B1\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "B2\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "Z0\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "-----\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "A9\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "A0\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "D4\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "E4\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "F4\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "H7\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "H6\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "H5\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "H4\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "A8\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "A7\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "A6\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "A5\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "A4\r"
+sleep 0.8
+expect eof

@@ -1,0 +1,63 @@
+#!/usr/bin/expect -f
+
+set force_conservative 0  ;
+			  ;
+if {$force_conservative} {
+		set send_slow {1 .1}
+		proc send {ignore arg} {
+			sleep .1
+			exp_send -s -- $arg
+		}
+}
+
+set timeout -1
+set pidt [lindex $argv 0];
+set map  [lindex $argv 1];
+spawn ./navy $pidt $map
+match_max 100000
+expect -exact "attack: "
+send -- "C4\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "D4\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "H1\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "H2\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "H3\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "B8\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "D4\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "E4\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "F4\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "D7\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "A4\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "F7\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "G7\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "C4\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "C5\r"
+sleep 0.8
+expect eof
